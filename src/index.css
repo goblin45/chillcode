@@ -77,7 +77,7 @@ code {
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 	box-shadow: 2px 2px 3px rgba(224, 215, 215, 0.928);
-	width: 100vw;
+	width: 100%;
 	padding-left: 2em;
 	padding-right: 1em;
 	z-index: 1;

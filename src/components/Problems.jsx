@@ -599,11 +599,13 @@ const Problems = ({color, bgColor}) => {
                  <ProblemCardBox>
                     <TitleAndCompanyBox>
                         <Typography fontFamily={'consolas, sans-serif'} style={{fontWeight: 'bold', fontSize: '1.2rem'}}>
-                            {problem.ttile}
+                            {problem.title}
                         </Typography>
                         <CompanyTags>
                             <Typography fontFamily={'consolas, sans-serif'} style={{ fontSize: '0.8rem'}}>Asked by:</Typography>
-                                {problem.company}
+                            {
+                                <img src={`../images/${problem.company}.png`} alt={`${problem.company}`} height={'100%'} width={'20px'}/>          
+                            }
                         </CompanyTags>
                     </TitleAndCompanyBox>
                     <SolveAndStatsBox>

@@ -598,7 +598,13 @@ const Problems = ({color, bgColor}) => {
             return (
                  <ProblemCardBox>
                     <TitleAndCompanyBox>
-                        <Typography fontFamily={'consolas, sans-serif'} style={{fontWeight: 'bold', fontSize: '1.2rem'}}>
+                        <Typography fontFamily={'consolas, sans-serif'} style={{
+                            fontWeight: 'bold', 
+                            fontSize: '1.2rem',
+                            whiteSpace: 'nowrap',
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis'
+                        }}>
                             {problem.title}
                         </Typography>
                         <CompanyTags>

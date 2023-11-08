@@ -728,13 +728,14 @@ const Problems = ({color, bgColor}) => {
                             </Typography>
                             <ProblemOfTheDayBox>
                                 <Typography fontFamily={'consolas, sans-serif'} style={{textDecoration: 'underline'}}>
-                                    Problem of The Day : {potd.title}   
+                                    Problem of The Day
                                 </Typography>
+                                <ProblemCard problem = {potd}/>
                             </ProblemOfTheDayBox>
                             {
                                 problems.map((problem, id) => {
                                     return (
-                                       <div key = {id} ><p>{problem.title}</p></div>
+                                        <ProblemCard problem={problem} key={id}/>
                                     )
                                 })
                             }

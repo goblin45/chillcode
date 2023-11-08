@@ -162,7 +162,7 @@ const Problems = ({color, bgColor}) => {
             `
 
             const TitleAndCompanyBox = styled(Box)`
-                max-width: 100%;
+                width: fit-content;
                 text-align: left;
                 display: flex;
                 flex-direction: column;
@@ -556,7 +556,7 @@ const Problems = ({color, bgColor}) => {
             `
 
             const TitleAndCompanyBox = styled(Box)`
-                max-width: 100%;
+                max-width: 70%;
                 text-align: left;
                 display: flex;
                 flex-direction: column;

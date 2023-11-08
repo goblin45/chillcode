@@ -42,13 +42,13 @@ function App() {
 					<NavBar mode={mode} setMode={setMode} color={color} bgColor={bgColor} setLoginBoxStatus={setLoginBoxStatus}/>
 					<Routes>
 						<Route path='/' element={<Home color={color} bgColor={bgColor} loginBoxStatus={loginBoxStatus} setLoginBoxStatus={setLoginBoxStatus}/>}/>
-						<Route path='/problems' element={<Problems color={color} bgColor={bgColor}/>}/>
-						<Route path='/problem/*' element={<Problem color={color} bgColor={bgColor} setLoginBoxStatus={setLoginBoxStatus}/>}/>
-						<Route path='/profile/*' element={<Profile color={color} bgColor={bgColor}/>}/>
-						<Route path='/problem-of-the-day' element={<POTD/>}/>
-						<Route path='/courses/*' element={<ComingSoon color={color} bgColor={bgColor}/>}/>
-						<Route path='/contests/*' element={<ComingSoon color={color} bgColor={bgColor}/>}/>
-						<Route path='/logout' element={<LogOut/>}/>
+						<Route path='problems' element={<Problems color={color} bgColor={bgColor}/>}/>
+						<Route path='problem/*' element={<Problem color={color} bgColor={bgColor} setLoginBoxStatus={setLoginBoxStatus}/>}/>
+						<Route path='profile/*' element={<Profile color={color} bgColor={bgColor}/>}/>
+						<Route path='problem-of-the-day' element={<POTD/>}/>
+						<Route path='courses/*' element={<ComingSoon color={color} bgColor={bgColor}/>}/>
+						<Route path='contests/*' element={<ComingSoon color={color} bgColor={bgColor}/>}/>
+						<Route path='logout' element={<LogOut/>}/>
 						<Route path='/*' element = {<NotFound color={color} bgColor={bgColor}/>}/>
 					</Routes>
 					{ 

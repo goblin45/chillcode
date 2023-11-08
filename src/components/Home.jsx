@@ -140,14 +140,14 @@ const Home = ({color, bgColor, loginBoxStatus, setLoginBoxStatus}) => {
         )
     }
 
-    const HeroImage = () => {
+    const HeroImage = ({height, width}) => {
         return (
             <Box>
                 {
                     (color === '#fff') ?
-                        <img src='../images/sample-for-home.png' alt="Image couldn't be loaded." height='85%' width='85%'/>
+                        <img src='../images/sample-for-home.png' alt="Image couldn't be loaded." height={height} width={width}/>
                     :
-                        <img src='../images/sample-for-home.png' alt="Image couldn't be loaded." height='85%' width='85%'/>
+                        <img src='../images/sample-for-home.png' alt="Image couldn't be loaded." height={height} width={width}/>
                 }   
             </Box>
         )
@@ -184,7 +184,12 @@ const Home = ({color, bgColor, loginBoxStatus, setLoginBoxStatus}) => {
                     </Box1>
                 </LeftBox>
                 <RightBox>
-                    <HeroImage/>
+                    {
+                        (screenWidth >= 768) ?
+                            <HeroImage height={'85%'} width={'85%'}/>
+                        :
+                            <HeroImage height={'100%'} width={'100%'}/>
+                    }
                 </RightBox>
             </MainBox>
             {/* {

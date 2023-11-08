@@ -177,12 +177,10 @@ const Login = ({color, setLoginBoxStatus}) => {
         axios.post('https://chillcode-api.onrender.com/user', { e_mail: emailval, password: pwdval})
         .then((response) => {
             userContext.updateUser(response.data.user)
-            console.log(response.data.user)
             setLoginBoxStatus('closed')
         })
         .catch((error) => {
             setError(error.response?.data.message)
-            console.log(error.response?.data.message)
         })
     }
 
@@ -194,12 +192,10 @@ const Login = ({color, setLoginBoxStatus}) => {
         axios.post('https://chillcode-api.onrender.com/user/login', { e_mail: emailval, password: pwdval })
         .then((response) => {
             userContext.updateUser(response.data.user)
-            console.log(response.data.user)
             setLoginBoxStatus('closed')
         })
         .catch((error) => {
             setError(error.response?.data.message)
-            console.log(error.response?.data.message)
         })
     }
 
@@ -210,7 +206,6 @@ const Login = ({color, setLoginBoxStatus}) => {
         axios.post('https://chillcode-api.onrender.com/user/googleauth', {email: decoded.email, email_verified: decoded.email_verified})
         .then((response) => {
             userContext.updateUser(response.data.user)
-            console.log(response.data.user)
             setLoginBoxStatus('closed')
         })
         .catch((error) => {
@@ -218,7 +213,6 @@ const Login = ({color, setLoginBoxStatus}) => {
         })
     }
     const onLoginError = (res) => {
-        console.log("Login failed", res)
     }
 
     return (

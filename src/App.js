@@ -49,7 +49,7 @@ function App() {
 						<Route path='/courses/*' element={<ComingSoon color={color} bgColor={bgColor}/>}/>
 						<Route path='/contests/*' element={<ComingSoon color={color} bgColor={bgColor}/>}/>
 						<Route path='/logout' element={<LogOut/>}/>
-						<Route path='*' element = {<NotFound color={color} bgColor={bgColor}/>}/>
+						<Route path='/*' element = {<NotFound color={color} bgColor={bgColor}/>}/>
 					</Routes>
 					{ 
 						(loginBoxStatus === 'open') && <Login color={color} bgColor={bgColor} setLoginBoxStatus={setLoginBoxStatus}/>

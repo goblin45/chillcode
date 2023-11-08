@@ -162,7 +162,7 @@ const Problems = ({color, bgColor}) => {
             `
 
             const TitleAndCompanyBox = styled(Box)`
-                width: 100%;
+                max-width: 100%;
                 text-align: left;
                 display: flex;
                 flex-direction: column;
@@ -214,7 +214,8 @@ const Problems = ({color, bgColor}) => {
                             fontSize: '1.2rem',
                             whiteSpace: 'nowrap',
                             overflow: 'hidden',
-                            textOverflow: 'ellipsis'
+                            textOverflow: 'ellipsis',
+                            maxWidth: '100%'
                         }}>
                             {problem.title}
                         </Typography>
@@ -555,7 +556,7 @@ const Problems = ({color, bgColor}) => {
             `
 
             const TitleAndCompanyBox = styled(Box)`
-                width: 100%;
+                max-width: 100%;
                 text-align: left;
                 display: flex;
                 flex-direction: column;
@@ -609,7 +610,8 @@ const Problems = ({color, bgColor}) => {
                             fontSize: '1.2rem',
                             whiteSpace: 'nowrap',
                             overflow: 'hidden',
-                            textOverflow: 'ellipsis'
+                            textOverflow: 'ellipsis',
+                            maxWidth: '100%'
                         }}>
                             {problem.title}
                         </Typography>

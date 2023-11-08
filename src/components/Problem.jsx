@@ -625,7 +625,9 @@ const Problem = ({color, bgColor, setLoginBoxStatus}) => {
                     <Typography fontFamily={'consolas, sans-serif'} fontWeight={'bold'} fontSize={'1.1rem'} color={`${color}`}>
                         Output Window
                     </Typography>
-                    <CloseIcon onClick={() => {setOutputActive(false)}}/>
+                    <div className="hover:pointer">
+                        <CloseIcon onClick={() => {setOutputActive(false)}}/>
+                    </div>
                 </OutputBoxHeader>
                 <OutputBoxBody>
                     <Box>

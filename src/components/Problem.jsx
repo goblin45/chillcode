@@ -806,7 +806,7 @@ const Problem = ({color, bgColor, setLoginBoxStatus}) => {
                             (problem !== null) &&
                                 <Typography
                                     fontFamily={'consolas, sans-serif'}
-                                    style={{fontSize: '1.5rem'}}
+                                    style={{fontSize: '1.5rem', textAlign: 'left'}}
                                 >
                                     {problem?.id}. {problem?.title}
                                 </Typography>
@@ -1049,7 +1049,7 @@ const Problem = ({color, bgColor, setLoginBoxStatus}) => {
                         <ProblemStatementTitle>
                             <Typography
                                 fontFamily={'consolas, sans-serif'}
-                                style={{fontSize: '1.5rem'}}
+                                style={{fontSize: '1.5rem', textAlign: 'left'}}
                             >
                                 {problem?.id}. {problem?.title}
                             </Typography>

@@ -162,7 +162,7 @@ const Problems = ({color, bgColor}) => {
             `
 
             const TitleAndCompanyBox = styled(Box)`
-                width: fit-content;
+                width: 100%;
                 text-align: left;
                 display: flex;
                 flex-direction: column;
@@ -209,7 +209,13 @@ const Problems = ({color, bgColor}) => {
             return (
                 <ProblemCardBox>
                     <TitleAndCompanyBox>
-                        <Typography fontFamily={'consolas, sans-serif'} style={{fontWeight: 'bold', fontSize: '1.2rem'}}>
+                        <Typography fontFamily={'consolas, sans-serif'} style={{
+                            fontWeight: 'bold', 
+                            fontSize: '1.2rem',
+                            whiteSpace: 'nowrap',
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis'
+                        }}>
                             {problem.title}
                         </Typography>
                         <CompanyTags>
@@ -549,7 +555,7 @@ const Problems = ({color, bgColor}) => {
             `
 
             const TitleAndCompanyBox = styled(Box)`
-                width: fit-content;
+                width: 100%;
                 text-align: left;
                 display: flex;
                 flex-direction: column;

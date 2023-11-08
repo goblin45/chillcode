@@ -7,7 +7,7 @@ const POTD = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        axios.get('http://localhost:3500/problemOfTheDay')
+        axios.get('https://chillcode-api.onrender.com/problemOfTheDay')
         .then((res) => {
             const problemId = res.data._id
             navigate(`/problem/?id=${problemId}`)

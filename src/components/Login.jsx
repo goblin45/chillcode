@@ -174,7 +174,7 @@ const Login = ({color, setLoginBoxStatus}) => {
         const emailval = emailRef.current.value
         const pwdval = pwdRef.current.value
 
-        axios.post('http://localhost:3500/user', { e_mail: emailval, password: pwdval})
+        axios.post('https://chillcode-api.onrender.com/user', { e_mail: emailval, password: pwdval})
         .then((response) => {
             userContext.updateUser(response.data.user)
             console.log(response.data.user)
@@ -191,7 +191,7 @@ const Login = ({color, setLoginBoxStatus}) => {
         const emailval = emailRef.current.value
         const pwdval = pwdRef.current.value
 
-        axios.post('http://localhost:3500/user/login', { e_mail: emailval, password: pwdval })
+        axios.post('https://chillcode-api.onrender.com/user/login', { e_mail: emailval, password: pwdval })
         .then((response) => {
             userContext.updateUser(response.data.user)
             console.log(response.data.user)
@@ -207,7 +207,7 @@ const Login = ({color, setLoginBoxStatus}) => {
         const decoded = jwtDecode(res.credential)
         console.log(decoded)
 
-        axios.post('http://localhost:3500/user/googleauth', {email: decoded.email, email_verified: decoded.email_verified})
+        axios.post('https://chillcode-api.onrender.com/user/googleauth', {email: decoded.email, email_verified: decoded.email_verified})
         .then((response) => {
             userContext.updateUser(response.data.user)
             console.log(response.data.user)

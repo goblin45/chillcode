@@ -50,7 +50,7 @@ const Problem = ({color, bgColor, setLoginBoxStatus}) => {
     useEffect(() => {
         const showProblem = async() => {
             try {
-                const problemsResponse = await axios.post('http://localhost:3500/problem/show', {_id : id});
+                const problemsResponse = await axios.post('https://chillcode-api.onrender.com/problem/show', {_id : id});
                 
                 // console.log("response",problemsResponse.data)
                 setProblem(problemsResponse.data)
@@ -75,7 +75,7 @@ const Problem = ({color, bgColor, setLoginBoxStatus}) => {
             let problemSolution = ' '
             let isExists
             try{ 
-                const res = await axios.post('http://localhost:3500/user/solved',{_id : userContext.user.id})
+                const res = await axios.post('https://chillcode-api.onrender.com/user/solved',{_id : userContext.user.id})
                 setSolvedProblems(res.data.solvedProblem)
                 const person = res.data.user
                 for (const problem of solvedProblems)
@@ -494,7 +494,7 @@ const Problem = ({color, bgColor, setLoginBoxStatus}) => {
         setError(null)
         setOutput(null)
         e.preventDefault()
-        await axios.post('http://localhost:3500/problem/run',{
+        await axios.post('https://chillcode-api.onrender.com/problem/run',{
             language : language,
             code : getEditorValue(),
             _id : id,
@@ -523,7 +523,7 @@ const Problem = ({color, bgColor, setLoginBoxStatus}) => {
         setError(null)
         setOutput(null)
         e.preventDefault()
-        await axios.post('http://localhost:3500/problem/submit',{
+        await axios.post('https://chillcode-api.onrender.com/problem/submit',{
             user_id : userContext.user.id,
             problem_id : problem._id,
             code : getEditorValue(),

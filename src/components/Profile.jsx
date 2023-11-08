@@ -42,7 +42,7 @@ const Profile = ({color, bgColor}) => {
     useEffect(() => {
         const fetchProblems = async () =>{
             try{
-                const problemResponse = await axios.post('http://localhost:3500/user/solved',{_id : user.id})
+                const problemResponse = await axios.post('https://chillcode-api.onrender.com/user/solved',{_id : user.id})
                 setSolvedProblems(problemResponse.data.solvedProblem)
             } catch(err)
             {   
@@ -136,7 +136,7 @@ const Profile = ({color, bgColor}) => {
     const handleSave = async() => {
         const usernameVal = usernameRef.current.value
         console.log("username",usernameVal)
-        await axios.patch('http://localhost:3500/user',{_id : user.id, e_mail : user.e_mail, username : usernameVal}).then((response)=>{
+        await axios.patch('https://chillcode-api.onrender.com/user',{_id : user.id, e_mail : user.e_mail, username : usernameVal}).then((response)=>{
             console.log(response.data.username)
             setUserName(response.data.username)
         })

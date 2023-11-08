@@ -38,8 +38,8 @@ const Problems = ({color, bgColor}) => {
     useEffect(() => {
         const fetchProblems = async () => {
           try {
-            const problemsResponse = await axios.get('http://localhost:3500/problem');
-            const potdResponse = await axios.get('http://localhost:3500/problemOfTheDay');
+            const problemsResponse = await axios.get('https://chillcode-api.onrender.com/problem');
+            const potdResponse = await axios.get('https://chillcode-api.onrender.com/problemOfTheDay');
             const problemsLoaded = problemsResponse.data;
             const problemOfTheDay = potdResponse.data;
             setProblems(problemsLoaded.problems)

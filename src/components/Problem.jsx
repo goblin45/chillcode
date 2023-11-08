@@ -808,7 +808,7 @@ const Problem = ({color, bgColor, setLoginBoxStatus}) => {
                                     fontFamily={'consolas, sans-serif'}
                                     style={{fontSize: '1.5rem'}}
                                 >
-                                    {problem.id}. {problem.title}
+                                    {problem?.id}. {problem?.title}
                                 </Typography>
                             }
                             <BugIcon/>
@@ -1051,19 +1051,19 @@ const Problem = ({color, bgColor, setLoginBoxStatus}) => {
                                 fontFamily={'consolas, sans-serif'}
                                 style={{fontSize: '1.5rem'}}
                             >
-                                {problem.id}. {problem.title}
+                                {problem?.id}. {problem?.title}
                             </Typography>
                             <BugIcon/>
                         </ProblemStatementTitle>
                         <ProblemPropertiesAndStats>
                             <Typography fontFamily={'consolas, sans-serif'} style={{fontWeight: 'bold', fontSize: '0.8rem'}}>
-                                {problem.difficulty}
+                                {problem?.difficulty}
                             </Typography>
                             <Typography fontFamily={'consolas, sans-serif'} style={{fontSize: '0.8rem'}}>
-                                Accuracy: {problem.accuracy}
+                                Accuracy: {problem?.accuracy}
                             </Typography>
                             <Typography fontFamily={'consolas, sans-serif'} style={{fontSize: '0.8rem'}}>
-                                Submissions: {problem.submissions}
+                                Submissions: {problem?.submissions}
                             </Typography>
                             {/* <Typography fontFamily={'consolas, sans-serif'} style={{fontSize: '0.8rem'}}>
                                 Points: {problem.points}
@@ -1080,10 +1080,10 @@ const Problem = ({color, bgColor, setLoginBoxStatus}) => {
                         <ProblemStatementBody>
                             <Typography fontFamily={'consolas, sans-serif'} style={{textAlign: 'left', padding: '2%', display: 'flex', flexDirection: 'column'}}>
                                 {/* <Typography fontFamily={'consolas, sans-serif'} style={{fontWeight: 'bold', marginRight: '2%'}}>Problem Statement:</Typography> */}
-                                {problem.desc}
+                                {problem?.desc}
                             </Typography>
                             {
-                                problem.examples.map((example, index) => {
+                                problem?.examples.map((example, index) => {
                                     return (
                                         <ExampleBox>
                                             <Typography fontFamily={'consolas, sans-serif'} fontWeight={'bold'}>

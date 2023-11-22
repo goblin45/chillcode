@@ -834,7 +834,11 @@ const Problem = ({color, bgColor, setLoginBoxStatus}) => {
                             <ProblemCompanyTags>
                                 <Typography fontFamily={'consolas, sans-serif'} style={{fontWeight: 'bold', fontSize: '0.8rem'}}>Asked by:</Typography>
                                 {
-                                   <img src={`../images/${problem.company}.png`} alt={`${problem.company}`} height={'100%'} width={'20px'}/>          
+                                    (problem.company) && problem.company.map(company => { 
+                                        return (              
+                                            <img src={`../images/${company}.png`} alt={`${company}`} height={'100%'} width={'20px'}/>          
+                                        )
+                                    })                      
                                 }
                             </ProblemCompanyTags>
                         }
@@ -1073,7 +1077,11 @@ const Problem = ({color, bgColor, setLoginBoxStatus}) => {
                             <ProblemCompanyTags>
                                 <Typography fontFamily={'consolas, sans-serif'} style={{fontWeight: 'bold', fontSize: '0.8rem'}}>Asked by:</Typography>
                                 {
-                                   <img src={`../images/${problem?.company}.png`} alt={`${problem?.company}`} height={'100%'} width={'20px'}/>          
+                                    (problem.company) && problem.company.map(company => { 
+                                        return (              
+                                            <img src={`../images/${company}.png`} alt={`${company}`} height={'100%'} width={'20px'}/>          
+                                        )
+                                    })                      
                                 }
                             </ProblemCompanyTags>
                         }

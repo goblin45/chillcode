@@ -10,6 +10,8 @@ import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import CloseOutlined from '@mui/icons-material/CloseOutlined';
 import { type } from '@testing-library/user-event/dist/type';
 
+import Skeleton from 'react-loading-skeleton'
+
 const Problems = ({color, bgColor}) => {
 
     const navigate = useNavigate()
@@ -20,6 +22,7 @@ const Problems = ({color, bgColor}) => {
     const [screenWidth, setScreenWidth] = useState(window.innerWidth)
 
     const [problems,setProblems] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
     const [potd, setPotd] = useState('')
     const [easyChecked, setEasyChecked] = useState(false)
     const [mediumChecked, setMediumChecked] = useState(false)
@@ -43,7 +46,8 @@ const Problems = ({color, bgColor}) => {
             const problemsLoaded = problemsResponse.data;
             const problemOfTheDay = potdResponse.data;
             setProblems(problemsLoaded.problems)
-            setPotd(problemOfTheDay);
+            setPotd(problemOfTheDay)
+            setIsLoading(false)
           } catch (error) {
             console.error(error);
           }
@@ -254,6 +258,59 @@ const Problems = ({color, bgColor}) => {
             )
         }
 
+        const ProblemCardSkeleton = ({ cards }) => {
+            return Array(cards).fill(0).map((_, i) => (
+                <div className='problem-card-box' style={{
+                    borderBottom: '1px solid gray',
+                    width: '100%',
+                    height: '120px',
+                    padding: '2%',
+                    display: 'flex',
+                    justifyContent: 'space-between'
+                }}>
+                    <div className="title-company-box" style={{
+                        width: '70%',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'flex-start',
+                        gap: '10px',
+                        padding: '10px'
+                    }}>
+                        <div className='problem-title' style={{
+                            width: '100%'
+                        }}>
+                            <Skeleton height={'2rem'}/>
+                        </div>
+                        <div className="company-tags" style={{
+                            width: '50%'
+                        }}>
+                            <Skeleton height={20}/>
+                        </div>
+                    </div>
+                    <div className="solve-stats" style={{
+                        width: '30%',
+                        padding: '5px 10px 25px 10px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                        alignItems: 'center'
+                    }}>
+                        <div className="solve-button" style={{
+                            width: '100%',
+                        }}>
+                            <Skeleton height={40}/>
+                        </div>
+                        <div className="statsbox" style={{
+                            width: '65%',
+                            height: '1rem'
+                        }}>
+                            <Skeleton/>
+                        </div>
+                    </div>
+                </div>
+            ))
+        }
+
         const UserStatsAndAdvertisements = () => {
 
             const UserStatsAndAdvertisementsBox = styled(Box)`
@@ -398,17 +455,18 @@ const Problems = ({color, bgColor}) => {
                         <Typography fontFamily={'consolas, sans-serif'} fontSize={'1.2rem'} style={{textAlign: 'left'}}>
                             Problems: 
                         </Typography>
-                        <ProblemOfTheDayBox>
-                            <Typography fontFamily={'consolas, sans-serif'} style={{textDecoration: 'underline'}}>
-                                Problem of The Day
-                            </Typography>
-                            <ProblemCard problem = {potd}/>
-                        </ProblemOfTheDayBox>
+                        {isLoading && <ProblemCardSkeleton cards={6}/>}
+                        {!isLoading && 
+                            <ProblemOfTheDayBox>
+                                <Typography fontFamily={'consolas, sans-serif'} style={{textDecoration: 'underline'}}>
+                                    Problem of The Day
+                                </Typography>
+                                <ProblemCard problem = {potd}/>
+                            </ProblemOfTheDayBox>
+                        }
                         {
                             problems.map((problem,id) => (
-                                
-                            <ProblemCard key = {id} problem = {problem}/>
-                                
+                                <ProblemCard key = {id} problem = {problem}/>
                             ))
                         }
                 </ProblemSetBox>
@@ -651,6 +709,60 @@ const Problems = ({color, bgColor}) => {
             )
         }
 
+        const ProblemCardSkeleton2 = ({ cards }) => {
+            return Array(cards).fill(0).map((_, i) => (
+                <div className='problem-card-box' style={{
+                    borderBottom: '1px solid gray',
+                    width: '100%',
+                    height: '100px',
+                    padding: '2%',
+                    display: 'flex',
+                    justifyContent: 'space-between'
+                }}>
+                    <div className="title-company-box" style={{
+                        width: '70%',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'flex-start',
+                        padding: '5px 10px'
+                    }}>
+                        <div className='problem-title' style={{
+                            width: '100%',
+                            padding: '8px 0'
+                        }}>
+                            <Skeleton height={'2rem'}/>
+                        </div>
+                        <div className="company-tags" style={{
+                            width: '60%'
+                        }}>
+                            <Skeleton height={20}/>
+                        </div>
+                    </div>
+                    <div className="solve-stats" style={{
+                        width: '30%',
+                        padding: '10px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                        alignItems: 'center'
+                    }}>
+                        <div className="solve-button" style={{
+                            width: '100%',
+                        }}>
+                            <Skeleton height={38}/>
+                        </div>
+                        <div className="statsbox" style={{
+                            width: '100%',
+                            height: '1rem',
+                            margin: '5px'
+                        }}>
+                            <Skeleton/>
+                        </div>
+                    </div>
+                </div>
+            ))
+        }
+
         const FilterIconBox = styled(Box)`
             position: fixed;
             bottom: 40px;
@@ -747,22 +859,23 @@ const Problems = ({color, bgColor}) => {
                         </UserStatsBox>
                     }
                     <ProblemSetBox>
-                            <Typography fontFamily={'consolas, sans-serif'} fontSize={'1.2rem'} style={{textAlign: 'left'}}>
-                                Problems: 
-                            </Typography>
+                        <Typography fontFamily={'consolas, sans-serif'} fontSize={'1.2rem'} style={{textAlign: 'left'}}>
+                            Problems: 
+                        </Typography>
+                        {isLoading && <ProblemCardSkeleton cards={6}/>}
+                        {!isLoading && 
                             <ProblemOfTheDayBox>
                                 <Typography fontFamily={'consolas, sans-serif'} style={{textDecoration: 'underline'}}>
                                     Problem of The Day
                                 </Typography>
                                 <ProblemCard problem = {potd}/>
                             </ProblemOfTheDayBox>
-                            {
-                                problems.map((problem, id) => {
-                                    return (
-                                        <ProblemCard problem={problem} key={id}/>
-                                    )
-                                })
-                            }
+                        }
+                        {
+                            problems.map((problem,id) => (
+                                <ProblemCard key = {id} problem = {problem}/>
+                            ))
+                        }
                     </ProblemSetBox>
                 </ProblemMainBox>
                 <FilterIconBox onClick={handleFilterIconClick}>
@@ -785,11 +898,3 @@ const Problems = ({color, bgColor}) => {
 }
 
 export default Problems
-
-
-
-// problem.company.map((company) => {
-//     return (
-//         <img src={`../images/${company}.png`} alt={`${company}`} height={'100%'} width={'20px'}/>
-//     )
-// })

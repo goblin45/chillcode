@@ -6,12 +6,10 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
-import UserState from './contexts/UserState';
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
-		<SkeletonTheme baseColor='#313131' highlightColor='#525252'>
+		<SkeletonTheme baseColor='#5c5b5b' highlightColor='#aba9a9'>
 			<BrowserRouter>
 				<Routes>
 					<Route path="/*" element={<App />} />

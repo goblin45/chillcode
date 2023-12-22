@@ -1140,7 +1140,7 @@ const Problem = ({color, bgColor, setLoginBoxStatus}) => {
                             <ProblemCompanyTags>
                                 <Typography fontFamily={'consolas, sans-serif'} style={{fontWeight: 'bold', fontSize: '0.8rem'}}>Asked by:</Typography>
                                 {
-                                    (problem.company) && problem.company.map(company => { 
+                                    (problem?.company) && problem?.company.map(company => { 
                                         return (              
                                             <img src={`../images/${company}.png`} alt={`${company}`} height={'100%'} width={'20px'}/>          
                                         )

@@ -709,7 +709,7 @@ const Problems = ({color, bgColor}) => {
             )
         }
 
-        const ProblemCardSkeleton2 = ({ cards }) => {
+        const ProblemCardSkeleton = ({ cards }) => {
             return Array(cards).fill(0).map((_, i) => (
                 <div className='problem-card-box' style={{
                     borderBottom: '1px solid gray',

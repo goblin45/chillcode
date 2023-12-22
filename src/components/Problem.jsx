@@ -2,6 +2,7 @@ import { useState, useEffect, useContext, useRef } from "react"
 import { useLocation, useNavigate } from "react-router-dom";
 import Editor from "@monaco-editor/react";
 import UserContext from "../contexts/UserContext";
+import Skeleton from 'react-loading-skeleton'
 
 import { Box, Button, Typography, Menu, MenuItem } from "@mui/material"
 import styled from "@emotion/styled"
@@ -10,8 +11,6 @@ import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
 import CachedIcon from '@mui/icons-material/Cached';
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-// import TimerOutlinedIcon from '@mui/icons-material/TimerOutlined';
-// import TimerOffOutlinedIcon from '@mui/icons-material/TimerOffOutlined';
 import BugReportOutlinedIcon from '@mui/icons-material/BugReportOutlined';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import axios from "axios";
@@ -31,6 +30,7 @@ const Problem = ({color, bgColor, setLoginBoxStatus}) => {
     const [output, setOutput] = useState(null)
     const [error, setError] = useState(null)
     const [status, setStatus] = useState(null)
+    const [isLoading, setIsLoading] = useState(true)
 
     const navigate = useNavigate()
     const location = useLocation()
@@ -54,7 +54,7 @@ const Problem = ({color, bgColor, setLoginBoxStatus}) => {
                 
                 // console.log("response",problemsResponse.data)
                 setProblem(problemsResponse.data)
-                
+                setIsLoading(false)
             } catch (error) {
                 console.error(error);
             }
@@ -212,6 +212,67 @@ const Problem = ({color, bgColor, setLoginBoxStatus}) => {
                 </Menu>
             </Box>            
         );
+    }
+
+    const LeftBoxBodySkeleton = () => {
+        return (
+            <>
+                <div className='title-header' style={{
+                    width: '90%'
+                }}>
+                    <Skeleton height={'2rem'}/>
+                </div>
+            
+                <div className='row-skeleton' style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    padding: '10px 0'
+                }}>
+                    <div className='row-item-1' style={{
+                        width: '20%'
+                    }}>
+                        <Skeleton height={20}/>
+                    </div>
+                    <div className='row-item-1' style={{
+                        width: '20%'
+                    }}>
+                        <Skeleton height={20}/>
+                    </div>
+                    <div className='row-item-1' style={{
+                        width: '20%'
+                    }}>
+                        <Skeleton height={20}/>
+                    </div>
+                </div>
+            
+                <div className='company' style={{
+                    width: '50%',
+                    marginBottom: '0.5rem'
+                }}>
+                    <Skeleton height={30}/>
+                </div>
+            
+                <div className='problem-statement' style={{
+                    width: '100%'
+                }}>
+                    <Skeleton count={10}/>
+                </div>
+            
+                <div className='example-number' style={{
+                    margin: '10px 0',
+                    width: '30%'
+                }}>   
+                    <Skeleton height={30}/>
+                </div>
+            
+                <div className='example' style={{
+                    width: '100%'
+                }}>
+                    <Skeleton height={'100px'}/>
+                </div>
+            </>
+        )
     }
 
     // const Timer = () => {
@@ -802,6 +863,7 @@ const Problem = ({color, bgColor, setLoginBoxStatus}) => {
                         </SlidingLeftBoxHeaderButton>
                     </SlidingLeftBoxHeader>
                     <SlidingLeftBoxBody>
+                        {isLoading && <LeftBoxBodySkeleton/>}
                         <ProblemStatementTitle> {
                             (problem !== null) &&
                                 <Typography
@@ -1050,6 +1112,7 @@ const Problem = ({color, bgColor, setLoginBoxStatus}) => {
                         </NonSlidingLeftBoxHeaderButton>
                     </NonSlidingLeftBoxHeader>
                     <NonSlidingLeftBoxBody>
+                        {isLoading && <LeftBoxBodySkeleton/>}
                         <ProblemStatementTitle>
                             <Typography
                                 fontFamily={'consolas, sans-serif'}
